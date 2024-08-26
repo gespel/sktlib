@@ -1,0 +1,11 @@
+[package]
+name = "sktlib"
+version = "0.1.0"
+edition = "2021"
+description = "the library for the template creator for kubernetes resources"
+license = "MIT"
+
+
+[dependencies]
+serde = { version = "1.0.208", features = ["derive"] }
+serde_yml = "0.0.11"
