@@ -1,4 +1,5 @@
-
+use std::fmt;
+use std::fmt::Formatter;
 use serde::{Deserialize, Serialize};
 use crate::core::models::{BaseMetadata, Labels, Port, ServiceSelector, ServiceSpec};
 
@@ -9,6 +10,12 @@ pub struct Service {
     kind: String,
     metadata: BaseMetadata,
     spec: ServiceSpec
+}
+
+impl fmt::Display for Service {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", serde_yml::to_string(self).unwrap())
+    }
 }
 
 impl Service {

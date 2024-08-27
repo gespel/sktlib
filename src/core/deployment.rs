@@ -1,4 +1,5 @@
-
+use std::fmt;
+use std::fmt::Formatter;
 use serde::{Deserialize, Serialize};
 use crate::core::models::{BaseMetadata, Container, Env, Labels, MatchLabels, Selector, Spec, Template, TemplateMetadata, TemplateSpec};
 
@@ -9,6 +10,12 @@ pub struct Deployment {
     kind: String,
     metadata: BaseMetadata,
     spec: Spec
+}
+
+impl fmt::Display for Deployment {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", serde_yml::to_string(self).unwrap())
+    }
 }
 
 impl Deployment {
