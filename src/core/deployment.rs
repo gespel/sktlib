@@ -1,14 +1,14 @@
 use std::fmt;
 use std::fmt::Formatter;
 use serde::{Deserialize, Serialize};
-use crate::core::models::{BaseMetadata, Container, Env, Labels, MatchLabels, Selector, Spec, Template, TemplateMetadata, TemplateSpec};
+use crate::core::models::{Container, Env, Labels, MatchLabels, Selector, Spec, Template, TemplateSpec, Metadata};
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct Deployment {
     #[serde(rename = "apiVersion")]
     api_version: String,
     kind: String,
-    metadata: BaseMetadata,
+    metadata: Metadata,
     spec: Spec
 }
 
@@ -23,7 +23,7 @@ impl Deployment {
         Deployment{
             api_version: "apps/v1".to_string(),
             kind: "Deployment".to_string(),
-            metadata: BaseMetadata {
+            metadata: Metadata {
                 name: name.clone(),
                 labels: Labels {
                     name: name.clone()
@@ -37,10 +37,11 @@ impl Deployment {
                     }
                 },
                 template: Template {
-                    metadata: TemplateMetadata {
+                    metadata: Metadata {
                         labels: Labels {
                             name: name.clone()
-                        }
+                        },
+                        name: name.clone(),
                     },
                     spec: TemplateSpec {
                         containers: vec![

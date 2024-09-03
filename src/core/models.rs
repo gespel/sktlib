@@ -20,13 +20,14 @@ pub struct TemplateSpec {
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
-pub struct TemplateMetadata {
-    pub(crate) labels: Labels
+pub struct Metadata {
+    pub labels: Labels,
+    pub name: String
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct Template {
-    pub(crate) metadata: TemplateMetadata,
+    pub(crate) metadata: Metadata,
     pub(crate) spec: TemplateSpec
 
 }
@@ -76,10 +77,4 @@ pub struct Spec {
 pub struct Labels {
     pub(crate) name: String,
 
-}
-
-#[derive(Serialize, Deserialize, PartialEq, Debug)]
-pub struct BaseMetadata {
-    pub(crate) name: String,
-    pub(crate) labels: Labels
 }
