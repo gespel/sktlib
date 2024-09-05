@@ -5,6 +5,7 @@ pub mod stringifyer;
 mod tests {
     use crate::core::deployment::Deployment;
     use crate::core::service::Service;
+    use crate::core::statefulset::StatefulSet;
     use crate::stringifyer::build_string;
 
     #[test]
@@ -31,6 +32,17 @@ mod tests {
             Deployment::new(
                 "test deployment".to_string(),
                 "python:3".to_string()
+            )
+        );
+        println!("{}", result);
+    }
+
+    #[test]
+    fn test_build_string_with_statefulset() {
+        let result = build_string(
+            StatefulSet::new(
+                "testdeployment".to_string(),
+                "python3".to_string()
             )
         );
         println!("{}", result);
