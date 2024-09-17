@@ -25,7 +25,12 @@ mod tests {
 
     #[test]
     fn test_build_string_with_service() {
-        let result = build_string(Service::new("test".to_string(), "testdeployment".to_string()));
+        let result = build_string(
+            Service::new(
+                "test".to_string(),
+                "testdeployment".to_string()
+            )
+        );
         println!("{}", result);
     }
 
@@ -53,19 +58,34 @@ mod tests {
 
     #[test]
     fn test_build_string_with_pod() {
-        let result = build_string(Pod::new("test".to_string(), "testdeployment".to_string()));
+        let result = build_string(
+            Pod::new(
+                "test".to_string(),
+                "testdeployment".to_string()
+            )
+        );
         println!("{}", result);
     }
 
     #[test]
     fn test_build_string_with_daemon_set() {
-        let result = build_string(DaemonSet::new("test".to_string(), "testdeployment".to_string()));
+        let result = build_string(
+            DaemonSet::new(
+                "test".to_string(),
+                "testdeployment".to_string()
+            )
+        );
         println!("{}", result);
     }
 
     #[test]
     fn test_build_string_with_replica_set() {
-        let result = build_string(ReplicaSet::new("test".to_string(), "testdeployment".to_string()));
+        let result = build_string(
+            ReplicaSet::new(
+                "test".to_string(),
+                "testdeployment".to_string()
+            )
+        );
         println!("{}", result);
     }
 }
