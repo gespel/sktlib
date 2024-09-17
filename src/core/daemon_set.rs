@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 use crate::core::models::{Container, Env, Labels, MatchLabels, Selector, Spec, Template, TemplateSpec, Metadata};
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
-pub struct Deployment {
+pub struct DaemonSet {
     #[serde(rename = "apiVersion")]
     api_version: String,
     kind: String,
@@ -12,17 +12,17 @@ pub struct Deployment {
     spec: Spec
 }
 
-impl fmt::Display for Deployment {
+impl fmt::Display for DaemonSet {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         write!(f, "{}", serde_yml::to_string(self).unwrap())
     }
 }
 
-impl Deployment {
-    pub fn new(name: String, image: String) -> Deployment {
-        Deployment {
+impl DaemonSet {
+    pub fn new(name: String, image: String) -> DaemonSet {
+        DaemonSet {
             api_version: "apps/v1".to_string(),
-            kind: "Deployment".to_string(),
+            kind: "DaemonSet".to_string(),
             metadata: Metadata {
                 name: name.clone(),
                 labels: Labels {
