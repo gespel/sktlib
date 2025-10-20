@@ -3,6 +3,7 @@ pub mod stringifyer;
 
 #[cfg(test)]
 mod tests {
+    use serde_yml::to_string;
     use crate::core::daemon_set::DaemonSet;
     use crate::core::deployment::Deployment;
     use crate::core::pod::Pod;
@@ -86,6 +87,27 @@ mod tests {
                 "testdeployment".to_string()
             )
         );
+        println!("{}", result);
+    }
+
+    #[test]
+    fn test_build_full_deployment() {
+        let result = format!(
+            "{}\n---\n{}",
+            build_string(
+                Deployment::new(
+                    "testdeployment".to_string(),
+                    "python:3".to_string()
+                )
+            ),
+            build_string(
+                Service::new(
+                    "test".to_string(),
+                    "testdeployment".to_string()
+                )
+            )
+        );
+
         println!("{}", result);
     }
 }
