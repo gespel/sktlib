@@ -32,7 +32,7 @@ mod tests {
                 "testdeployment".to_string()
             )
         );
-        println!("{}", result);
+        println!("Testing service:\n{}", result);
     }
 
     #[test]
@@ -43,7 +43,7 @@ mod tests {
                 "python:3".to_string()
             )
         );
-        println!("{}", result);
+        println!("Testing deployment:\n{}", result);
     }
 
     #[test]
@@ -54,7 +54,7 @@ mod tests {
                 "python3".to_string()
             )
         );
-        println!("{}", result);
+        println!("Testing stateful set:\n{}", result);
     }
 
     #[test]
@@ -76,7 +76,7 @@ mod tests {
                 "testdeployment".to_string()
             )
         );
-        println!("{}", result);
+        println!("Testing daemon set:\n{}", result);
     }
 
     #[test]
@@ -87,7 +87,7 @@ mod tests {
                 "testdeployment".to_string()
             )
         );
-        println!("{}", result);
+        println!("Testing replica set:\n{}", result);
     }
 
     #[test]
@@ -108,6 +108,6 @@ mod tests {
             )
         );
 
-        println!("{}", result);
+        println!("Testing full deployment:\n{}", result);
     }
 }
