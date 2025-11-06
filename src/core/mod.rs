@@ -5,3 +5,4 @@ pub mod stateful_set;
 pub mod pod;
 pub mod replica_set;
 pub mod daemon_set;
+pub mod manifest_creator;

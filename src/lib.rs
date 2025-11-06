@@ -3,13 +3,13 @@ pub mod stringifyer;
 
 #[cfg(test)]
 mod tests {
-    use serde_yml::to_string;
     use crate::core::daemon_set::DaemonSet;
     use crate::core::deployment::Deployment;
     use crate::core::pod::Pod;
     use crate::core::replica_set::ReplicaSet;
     use crate::core::service::Service;
     use crate::core::stateful_set::StatefulSet;
+    use crate::core::manifest_creator::ManifestCreator;
     use crate::stringifyer::build_string;
 
     #[test]
@@ -109,5 +109,12 @@ mod tests {
         );
 
         println!("Testing full deployment:\n{}", result);
+    }
+
+    #[test]
+    fn test_manifest_creator() {
+        let mc = ManifestCreator::new();
+        println!("Testing manifest_creator:\n\n{}", mc.create_deployment("testor", "python:3")
+            .unwrap());
     }
 }
