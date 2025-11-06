@@ -10,7 +10,8 @@ pub struct Env {
 pub struct Container {
     pub(crate) name: String,
     pub(crate) image: String,
-    pub(crate) env: Vec<Env>
+    pub(crate) env: Vec<Env>,
+    pub(crate) ports: Vec<Port>,
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]

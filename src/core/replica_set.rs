@@ -54,6 +54,7 @@ impl ReplicaSet {
                                         value: "asdasd".to_string(),
                                     }
                                 ],
+                                ports: vec![]
                             }
                         ],
                     }

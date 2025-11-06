@@ -40,6 +40,7 @@ impl Pod {
                                 value: "asd".to_string(),
                             }
                         ],
+                        ports: vec![]
                     },
                 ],
             },

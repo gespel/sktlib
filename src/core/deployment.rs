@@ -54,6 +54,7 @@ impl Deployment {
                                         value: "asdasd".to_string(),
                                     }
                                 ],
+                                ports: vec![]
                             }
                         ],
                     }
