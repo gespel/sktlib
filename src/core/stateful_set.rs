@@ -89,7 +89,8 @@ impl StatefulSet {
                                         value: "asdasd".to_string(),
                                     }
                                 ],
-                                ports: vec![]
+                                ports: vec![],
+                                volume_mounts: vec![]
                             }
                         ],
                     }

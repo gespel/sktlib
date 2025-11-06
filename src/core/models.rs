@@ -12,6 +12,8 @@ pub struct Container {
     pub(crate) image: String,
     pub(crate) env: Vec<Env>,
     pub(crate) ports: Vec<Port>,
+    #[serde(rename = "volumeMounts")]
+    pub(crate) volume_mounts: Vec<VolumeMount>
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
@@ -53,6 +55,14 @@ pub struct Port {
     #[serde(rename = "targetPort")]
     pub(crate) target_port: i32
 }
+
+#[derive(Serialize, Deserialize, PartialEq, Debug)]
+pub struct VolumeMount {
+    pub(crate) name: String,
+    pub(crate) mountpoint: String
+}
+
+
 
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct ServiceSelector {
