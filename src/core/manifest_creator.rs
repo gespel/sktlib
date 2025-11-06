@@ -12,6 +12,9 @@ impl ManifestCreator {
 
     pub fn create_deployment(&self, name: &str, image: &str) -> Result<String, String> {
         let deployment = Deployment::new(name.to_string(), image.to_string());
+        if deployment.api_version == "v0" {
+            return Err("v0 does not exist".to_string());
+        }
         Ok(build_string(deployment))
     }
 }

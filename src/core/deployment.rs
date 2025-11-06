@@ -6,7 +6,7 @@ use crate::core::models::{Container, Env, Labels, MatchLabels, Selector, Spec, T
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct Deployment {
     #[serde(rename = "apiVersion")]
-    api_version: String,
+    pub api_version: String,
     kind: String,
     metadata: Metadata,
     spec: Spec
