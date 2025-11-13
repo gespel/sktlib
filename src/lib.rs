@@ -114,7 +114,10 @@ mod tests {
     #[test]
     fn test_manifest_creator() {
         let mc = ManifestCreator::new();
-        println!("Testing manifest_creator:\n\n{}", mc.create_deployment("testor", "python:3")
+        println!("Testing manifest_creator deployment:\n\n{}", mc.create_deployment("testor",
+                                                                                "python:3")
             .unwrap());
+        println!("Testing manifest_creator service:\n\n{}", mc.create_service("test-svc", "test",
+                                                                              80).unwrap());
     }
 }
