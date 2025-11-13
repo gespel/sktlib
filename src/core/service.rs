@@ -19,7 +19,7 @@ impl fmt::Display for Service {
 }
 
 impl Service {
-    pub fn new(name: String, target_backend: String) -> Service {
+    pub fn new(name: String, target_backend: String, ports: Vec<Port>) -> Service {
         Service {
             api_version: "v1".to_string(),
             kind: "Service".to_string(),
@@ -33,13 +33,7 @@ impl Service {
                 selector: ServiceSelector {
                     name : target_backend
                 },
-                ports: vec![
-                    Port {
-                        protocol: "TCP".to_string(),
-                        port: 80,
-                        target_port: 8080,
-                    }
-                ],
+                ports,
                 type_name: "ClusterIP".to_string(),
             },
         }

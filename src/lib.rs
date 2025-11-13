@@ -10,6 +10,7 @@ mod tests {
     use crate::core::service::Service;
     use crate::core::stateful_set::StatefulSet;
     use crate::core::manifest_creator::ManifestCreator;
+    use crate::core::models::Port;
     use crate::stringifyer::build_string;
 
     #[test]
@@ -29,7 +30,12 @@ mod tests {
         let result = build_string(
             Service::new(
                 "test".to_string(),
-                "testdeployment".to_string()
+                "testdeployment".to_string(), vec![
+                    Port {
+                    protocol: "TCP".to_string(),
+                    port: 42,
+                    target_port: 42,
+                }]
             )
         );
         println!("Testing service:\n{}", result);
@@ -103,7 +109,14 @@ mod tests {
             build_string(
                 Service::new(
                     "test".to_string(),
-                    "testdeployment".to_string()
+                    "testdeployment".to_string(),
+                    vec![
+                        Port {
+                            protocol: "TCP".to_string(),
+                            port: 5000,
+                            target_port: 5000,
+                        }
+                    ]
                 )
             )
         );

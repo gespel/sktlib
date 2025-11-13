@@ -1,4 +1,5 @@
 use crate::core::deployment::Deployment;
+use crate::core::models::Port;
 use crate::core::service::Service;
 use crate::stringifyer::build_string;
 
@@ -17,7 +18,13 @@ impl ManifestCreator {
     }
 
     pub fn create_service(&self, name: &str, target: &str, port: i32) -> Result<String, String> {
-        let service = Service::new(name.to_string(), target.to_string());
+        let service = Service::new(name.to_string(), target.to_string(), vec![
+            Port{
+                protocol: "TCP".to_string(),
+                port,
+                target_port: port,
+            }]
+        );
         Ok(build_string(service))
     }
 }
